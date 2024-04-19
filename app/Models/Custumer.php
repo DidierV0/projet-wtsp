@@ -25,4 +25,10 @@ class Custumer extends Model
     {
         return $this->belongTo(Contact::class, 'contact_id');
     }
+
+
+    public function listDiff(): BelongTo
+    {
+        return $this->belongTo(listDiff::class, 'listDiff_id');
+    }
 }
