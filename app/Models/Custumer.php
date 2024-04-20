@@ -29,6 +29,12 @@ class Custumer extends Model
 
     public function listDiff(): BelongTo
     {
-        return $this->belongTo(listDiff::class, 'listDiff_id');
+        return $this->belongTo(ListDiff::class, 'listDiff_id');
+    }
+
+
+    public function campagne(): BelongTo
+    {
+        return $this->belongTo(ListDiff::class, 'campagne_id');
     }
 }

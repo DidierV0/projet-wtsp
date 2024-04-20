@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('contact_id')->nullable()->cascadeOnDelate();
             // $table->foreignId('balance_id')->nullable()->cascadeOnDelate();
             $table->foreignId('list_diff_id')->nullable()->cascadeOnDelate();
-            // $table->foreignId('campagne_id')->nullable()->cascadeOnDelate();
+            $table->foreignId('campagne_id')->nullable()->cascadeOnDelate();
             $table->string('last_name');
             $table->string('firstname');
             $table->string('email')->unique();

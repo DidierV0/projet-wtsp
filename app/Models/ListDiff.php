@@ -20,8 +20,13 @@ class ListDiff extends Model
         return $this->hasmany(Custumer::class, 'custumer_id');
     }
 
-    public function Contacts(): BelongsToMany 
+    public function contacts(): BelongsToMany 
     {
         return $this->belongsToMany(Contact::class, 'contact_list_diffs', 'listDiff_id', 'contact_id')->withTimestamps();
+    }
+
+    public function campagne(): BelongTo
+    {
+        return $this->belongTo(Campagne::class, 'campagne_id');
     }
 }
