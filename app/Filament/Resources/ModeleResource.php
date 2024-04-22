@@ -23,7 +23,7 @@ class ModeleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nom')
+                Forms\Components\TextInput::make('name')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('text')
                     ->columnSpanFull(),
@@ -36,7 +36,7 @@ class ModeleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nom')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nbVar')
                     ->numeric()

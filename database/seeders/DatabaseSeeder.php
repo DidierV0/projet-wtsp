@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             BalenceSeeder::class,
             PayementSeeder::class,
             ProductSeeder::class,
+            ModeleSeeder::class,
         ]);
     }
 }
