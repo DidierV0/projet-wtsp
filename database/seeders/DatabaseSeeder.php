@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             CustumerSeeder::class,
             ContactSeeder::class,
             CampagneSeeder::class,
-            ListdiffSeeder::class,
+            ListDiffSeeder::class,
             BalenceSeeder::class,
             PayementSeeder::class,
             ProductSeeder::class,
