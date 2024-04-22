@@ -26,16 +26,6 @@ class CustomerResource extends Resource
                 Forms\Components\TextInput::make('uid')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('contact_id')
-                    ->relationship('contact', 'id'),
-                Forms\Components\Select::make('balence_id')
-                    ->relationship('balence', 'id'),
-                Forms\Components\Select::make('listDiff_id')
-                    ->relationship('listDiff', 'name'),
-                Forms\Components\Select::make('campagne_id')
-                    ->relationship('campagne', 'name'),
-                Forms\Components\Select::make('payement_id')
-                    ->relationship('payement', 'id'),
                 Forms\Components\TextInput::make('last_name')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('firstname')
@@ -63,21 +53,6 @@ class CustomerResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('uid')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('contact.id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('balence.id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('listDiff.name')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('campagne.name')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('payement.id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('firstname')

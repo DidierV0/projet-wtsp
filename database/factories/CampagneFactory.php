@@ -19,8 +19,7 @@ class CampagneFactory extends Factory
         return [
             'customer_id' => $this->faker->numberBetween(1, 10),
             'model_id' => $this->faker->numberBetween(1, 10),
-            'listdiff_id' => $this->faker->numberBetween(1, 10),
-            'name' => $this->faker->name(),
+            'name' => $this->faker->text(),
         ];
     }
 }

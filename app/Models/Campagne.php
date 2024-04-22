@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Modele;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Campagne extends Model
@@ -14,22 +14,16 @@ class Campagne extends Model
     protected $fillable = [
         'customer_id',
         'model_id',
-        'listDiff_id',
         'name',
     ];
 
     public function customer(): BelongsTo
     {
-        return $this->belongsTo(Custumer::class);
+        return $this->belongsTo(Customer::class);
     }
 
-    public function model(): HasMany
+    public function model(): BelongsTo
     {
-        return $this->hasmany(Modele::class, 'model_id');
-    }
-
-    public function listDiff(): HasMany
-    {
-        return $this->hasmany(ListDiff::class, 'listDiff_id');
+        return $this->belongsTo(Modele::class);
     }
 }

@@ -23,6 +23,9 @@ class ContactResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('customer_id')
+                    ->relationship('customer', 'id')
+                    ->required(),
                 Forms\Components\TextInput::make('last_name')
                     ->required()
                     ->maxLength(255),
@@ -48,6 +51,9 @@ class ContactResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('customer.id')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('firstname')

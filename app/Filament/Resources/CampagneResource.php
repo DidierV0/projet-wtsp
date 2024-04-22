@@ -29,9 +29,6 @@ class CampagneResource extends Resource
                 Forms\Components\TextInput::make('model_id')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('listdiff_id')
-                    ->required()
-                    ->numeric(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -46,9 +43,6 @@ class CampagneResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('model_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('listdiff_id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')

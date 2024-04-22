@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Modele extends Model
 {
@@ -12,14 +13,13 @@ class Modele extends Model
     protected $table = 'models';
 
     protected $fillable = [
-            'name',
-            'text',
-            'nbVar',
+        'name',
+        'text',
+        'nbVar',
     ];
 
-
-    public function campagne(): BelongTo
+    public function campagne(): BelongsTo
     {
-        return $this->belongTo(Campagne::class, 'campagne_id');
+        return $this->belongsTo(Campagne::class);
     }
 }

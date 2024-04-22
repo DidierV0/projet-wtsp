@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id');
             $table->foreignId('model_id');
-            $table->foreignId('listdiff_id');
             $table->string('name');
             $table->timestamps();
         });

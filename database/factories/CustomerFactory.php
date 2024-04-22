@@ -26,7 +26,7 @@ class CustomerFactory extends Factory
             'uid' => $this->faker->uuid(),
             'last_name' => $this->faker->lastName(),
             'firstname' => $this->faker->firstName(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'email' => $this->faker->unique()->companyEmail(),
             'phone_number' => $this->faker->unique()->phoneNumber(),
             'siret' => $this->faker->unique()->siret(),
             'company_name' => $this->faker->company(),
