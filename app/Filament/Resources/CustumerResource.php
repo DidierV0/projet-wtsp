@@ -43,7 +43,7 @@ class CustumerResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Toggle::make('has_wstp_b')
                     ->required(),
-                Forms\Components\TextInput::make('statut')
+                Forms\Components\TextInput::make('status')
                     ->required(),
             ]);
     }
@@ -71,7 +71,9 @@ class CustumerResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('has_wstp_b')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('statut'),
+                Tables\Columns\TextColumn::make('status')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
