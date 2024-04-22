@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Contact extends Model
@@ -19,13 +20,13 @@ class Contact extends Model
         'sex',
     ];
 
-    public function custumer(): HasMany
+    public function customers(): HasMany
     {
-        return $this->hasmany(Custumer::class, 'custumer_id');
+        return $this->hasMany(Customer::class, 'contact_id');
     }
 
-    public function listDiffs(): BelongsToMany 
+    public function listDiffs(): BelongsToMany
     {
-        return $this->belongsToMany(ListDiff::class, 'contact_list_diffs', 'contact_id', 'listDiff_id')->withTimestamps();
+        return $this->belongsToMany(ListDiff::class, 'contact_list_diffs', 'contact_id', 'list_diff_id')->withTimestamps();
     }
 }
