@@ -24,29 +24,22 @@ class CustumerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('uid')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('contact_id')
                     ->numeric(),
                 Forms\Components\TextInput::make('last_name')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('firstname')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone_number')
                     ->tel()
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('siret')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('company_name')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\Toggle::make('has_wstp_b')
                     ->required(),

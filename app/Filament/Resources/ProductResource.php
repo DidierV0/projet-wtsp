@@ -2,20 +2,20 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\ProductResource\Pages;
+use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Models\Product;
 use Filament\Forms;
-use Filament\Tables;
-use App\Models\Modele;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\ModeleResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ModeleResource\RelationManagers;
 
-class ModeleResource extends Resource
+class ProductResource extends Resource
 {
-    protected static ?string $model = Modele::class;
+    protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,12 +23,16 @@ class ModeleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nom')
+                Forms\Components\TextInput::make('name')
+                    ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('text')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('nbVar')
+                Forms\Components\TextInput::make('volume')
+                    ->required()
                     ->numeric(),
+                Forms\Components\TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('$'),
             ]);
     }
 
@@ -36,10 +40,13 @@ class ModeleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nom')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('nbVar')
+                Tables\Columns\TextColumn::make('volume')
                     ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('price')
+                    ->money()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -73,9 +80,9 @@ class ModeleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListModeles::route('/'),
-            'create' => Pages\CreateModele::route('/create'),
-            'edit' => Pages\EditModele::route('/{record}/edit'),
+            'index' => Pages\ListProducts::route('/'),
+            'create' => Pages\CreateProduct::route('/create'),
+            'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
 }

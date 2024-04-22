@@ -37,4 +37,16 @@ class Custumer extends Model
     {
         return $this->belongTo(ListDiff::class, 'campagne_id');
     }
+
+
+    public function balence(): BelongTo
+    {
+        return $this->belongTo(Balence::class, 'balence_id');
+    }
+
+
+    public function payment(): BelongTo
+    {
+        return $this->belongTo(Payment::class, 'payment_id');
+    }
 }
