@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id');
-            $table->string('last_name')->nullable;
-            $table->string('firstname')->nullable;
-            $table->timestamp('birthdate')->nullable;
-            $table->string('phone_number')->nullable;
-            $table->string('city')->nullable;
-            $table->string('sex')->nullable;
+            $table->string('last_name')->nullable();
+            $table->string('firstname')->nullable();
+            $table->timestamp('birthdate')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('city')->nullable();
+            $table->string('sex')->nullable();
             $table->timestamps();
         });
     }

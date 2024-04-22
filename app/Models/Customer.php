@@ -35,17 +35,17 @@ class Customer extends Model
         return $this->hasMany(Campagne::class, 'customer_id');
     }
 
-    public function listDiff(): BelongsTo
+    public function listDiffs(): HasMany
     {
-        return $this->belongsTo(ListDiff::class, 'listDiff_id');
+        return $this->hasMany(ListDiff::class, 'customer_id');
     }
 
-    public function balence(): BelongsTo
+    public function balance(): BelongsTo
     {
         return $this->belongsTo(Balence::class);
     }
 
-    public function payements(): HasMany
+    public function paiements(): HasMany
     {
         return $this->hasMany(Payement::class, 'customer_id');
     }
