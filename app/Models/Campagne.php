@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Modele;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Campagne extends Model
 {
@@ -21,7 +22,7 @@ class Campagne extends Model
 
     public function model(): HasMany
     {
-        return $this->hasmany(Model::class, 'model_id');
+        return $this->hasmany(Modele::class, 'model_id');
     }
 
 

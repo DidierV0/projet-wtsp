@@ -24,6 +24,11 @@ class CustumerFactory extends Factory
     {
         return [
             'uid' => $this->faker->uuid(),
+            'contact_id' => $this->faker->numberBetween(1, 10),
+            'balence_id' => $this->faker->numberBetween(1, 10),
+            'listDiff_id' => $this->faker->numberBetween(1, 10),
+            'campagne_id' => $this->faker->numberBetween(1, 10),
+            'payement_id' => $this->faker->numberBetween(1, 10),
             'last_name' => $this->faker->lastName(),
             'firstname' => $this->faker->firstName(),
             'email' => $this->faker->unique()->safeEmail(),

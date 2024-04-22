@@ -37,13 +37,13 @@ class Custumer extends Model
         return $this->belongsTo(Campagne::class, 'campagne_id');
     }
 
-    public function balance(): BelongsTo
+    public function balence(): BelongsTo
     {
-        return $this->belongsTo(Balance::class, 'balance_id');
+        return $this->belongsTo(Balence::class, 'balence_id');
     }
 
-    public function payment(): BelongsTo
+    public function payement(): BelongsTo
     {
-        return $this->belongsTo(Payment::class, 'payment_id');
+        return $this->belongsTo(Payement::class, 'payement_id');
     }
 }
