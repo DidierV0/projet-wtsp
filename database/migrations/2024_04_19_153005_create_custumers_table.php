@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('siret')->nullable()->unique();
             $table->string('company_name')->nullable();
             $table->boolean('has_wstp_b')->default(false);
-            $table->enum('statut',['unvalided','process', 'valided' ])->default('unvalided');
+            $table->enum('status', ['unvalidated', 'processed', 'validated'])->default('unvalidated');
             $table->timestamps();
             $table->softDeletes();
         });

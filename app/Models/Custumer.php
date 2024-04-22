@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Custumer extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'uid',
         'last_name',
@@ -21,32 +22,28 @@ class Custumer extends Model
         'statut',
     ];
 
-    public function contact(): BelongTo
+    public function contact(): BelongsTo
     {
-        return $this->belongTo(Contact::class, 'contact_id');
+        return $this->belongsTo(Contact::class, 'contact_id');
     }
 
-
-    public function listDiff(): BelongTo
+    public function listDiff(): BelongsTo
     {
-        return $this->belongTo(ListDiff::class, 'listDiff_id');
+        return $this->belongsTo(ListDiff::class, 'listDiff_id');
     }
 
-
-    public function campagne(): BelongTo
+    public function campagne(): BelongsTo
     {
-        return $this->belongTo(ListDiff::class, 'campagne_id');
+        return $this->belongsTo(Campagne::class, 'campagne_id');
     }
 
-
-    public function balence(): BelongTo
+    public function balance(): BelongsTo
     {
-        return $this->belongTo(Balence::class, 'balence_id');
+        return $this->belongsTo(Balance::class, 'balance_id');
     }
 
-
-    public function payment(): BelongTo
+    public function payment(): BelongsTo
     {
-        return $this->belongTo(Payment::class, 'payment_id');
+        return $this->belongsTo(Payment::class, 'payment_id');
     }
 }
