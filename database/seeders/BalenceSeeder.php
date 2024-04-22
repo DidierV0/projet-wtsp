@@ -12,6 +12,6 @@ class BalenceSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Balence::factory(10)->create();
     }
 }

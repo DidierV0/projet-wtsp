@@ -12,6 +12,6 @@ class ListDiffSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\ListDiff::factory(10)->create();
     }
 }

@@ -17,7 +17,7 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            'custumer_id' => null,
+            'custumer_id' => $this->faker->numberBetween(1, 10),
             'last_name' => $this->faker->lastName(),
             'firstname' => $this->faker->firstName(),
             'birthdate' => $this->faker->date(),

@@ -17,7 +17,9 @@ class ModeleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'text' => $this->faker->text(),
+            'nbVar' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

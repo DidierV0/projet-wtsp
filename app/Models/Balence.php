@@ -12,8 +12,8 @@ class Balence extends Model
 
     protected $fillable = [
         'name',
-        'nbMessEmmis',
-        'nbMessPay',
+        'nbMessageSent',
+        'nbMessagePaid',
     ];
 
 

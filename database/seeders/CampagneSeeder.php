@@ -12,6 +12,6 @@ class CampagneSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Campagne::factory(10)->create();
     }
 }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('balences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('custumer_id');
-            $table->float('nbMessEmmis');
-            $table->float('nbMessPay');
+            $table->float('nbMessageSent');
+            $table->float('nbMessagePaid');
             $table->timestamps();
         });
     }

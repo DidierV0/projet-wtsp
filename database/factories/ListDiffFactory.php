@@ -17,7 +17,9 @@ class ListDiffFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'custumer_id' => $this->faker->numberBetween(1, 10),
+            'name' => $this->faker->name(),
+            'description' => $this->faker->text(),
         ];
     }
 }

@@ -12,6 +12,6 @@ class ModeleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Modele::factory(10)->create();
     }
 }

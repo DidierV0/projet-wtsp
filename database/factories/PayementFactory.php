@@ -17,7 +17,8 @@ class PayementFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'custumer_id' => $this->faker->numberBetween(1, 10),
+            'product_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
