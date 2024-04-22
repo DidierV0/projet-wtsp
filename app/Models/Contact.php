@@ -29,6 +29,6 @@ class Contact extends Model
 
     public function listDiffs(): BelongsToMany
     {
-        return $this->belongsToMany(ListDiff::class, 'contact_list_diffs', 'contact_id', 'list_diff_id')->withTimestamps();
+        return $this->belongsToMany(ListDiff::class, 'contact_list_diff', 'contact_id', 'list_diff_id')->withTimestamps();
     }
 }

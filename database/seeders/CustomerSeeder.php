@@ -65,5 +65,20 @@ class CustomerSeeder extends Seeder
                 'nbMessagePaid' => rand(20, 50), // Nombre de messages payés aléatoire
             ]);
         });
+
+        // Obtenez tous les contacts et toutes les listes de diffusion
+        $contacts = Contact::all();
+        $lists = ListDiff::all();
+
+        // Bouclez sur chaque contact et associez-le à une ou plusieurs listes de diffusion
+        $contacts->each(function ($contact) use ($lists) {
+            // Sélectionnez un nombre aléatoire de listes de diffusion pour ce contact
+            $randomLists = $lists->random(rand(1, 3));
+
+            // Attachez le contact à chaque liste de diffusion sélectionnée
+            $randomLists->each(function ($list) use ($contact) {
+                $contact->listDiffs()->attach($list->id);
+            });
+        });
     }
 }
