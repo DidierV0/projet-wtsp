@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CampagneResource\Pages;
-use App\Filament\Resources\CampagneResource\RelationManagers;
-use App\Models\Campagne;
+use App\Filament\Resources\BalenceResource\Pages;
+use App\Filament\Resources\BalenceResource\RelationManagers;
+use App\Models\Balence;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CampagneResource extends Resource
+class BalenceResource extends Resource
 {
-    protected static ?string $model = Campagne::class;
+    protected static ?string $model = Balence::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,18 +23,15 @@ class CampagneResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('customer_id')
+                Forms\Components\Select::make('customer_id')
+                    ->relationship('customer', 'id')
+                    ->required(),
+                Forms\Components\TextInput::make('nbMessageSent')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('model_id')
+                Forms\Components\TextInput::make('nbMessagePaid')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('listdiff_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
             ]);
     }
 
@@ -42,17 +39,15 @@ class CampagneResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('customer_id')
+                Tables\Columns\TextColumn::make('customer.id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('model_id')
+                Tables\Columns\TextColumn::make('nbMessageSent')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('listdiff_id')
+                Tables\Columns\TextColumn::make('nbMessagePaid')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -85,9 +80,9 @@ class CampagneResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCampagnes::route('/'),
-            'create' => Pages\CreateCampagne::route('/create'),
-            'edit' => Pages\EditCampagne::route('/{record}/edit'),
+            'index' => Pages\ListBalences::route('/'),
+            'create' => Pages\CreateBalence::route('/create'),
+            'edit' => Pages\EditBalence::route('/{record}/edit'),
         ];
     }
 }

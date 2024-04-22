@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('custumer_id');
+            $table->foreignId('customer_id');
             $table->string('last_name')->nullable;
             $table->string('firstname')->nullable;
             $table->timestamp('birthdate')->nullable;

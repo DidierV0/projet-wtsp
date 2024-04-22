@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Contact extends Model
@@ -12,6 +13,7 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = [
+        'customer_id',
         'last_name',
         'firstname',
         'birthdate',
@@ -20,9 +22,9 @@ class Contact extends Model
         'sex',
     ];
 
-    public function customers(): HasMany
+    public function customer(): BelongsTo
     {
-        return $this->hasMany(Customer::class, 'contact_id');
+        return $this->belongsTo(Customer::class);
     }
 
     public function listDiffs(): BelongsToMany

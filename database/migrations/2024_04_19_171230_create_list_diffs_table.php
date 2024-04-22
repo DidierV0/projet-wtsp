@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('list_diffs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('custumer_id');
+            $table->foreignId('customer_id');
             $table->string('name');
             $table->string('description');
             $table->timestamps();

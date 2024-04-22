@@ -3,17 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Contact;
-use App\Models\Custumer;
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CustumerFactory extends Factory
+class CustomerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Custumer::class;
+    protected $model = Customer::class;
 
     /**
      * Define the model's default state.
@@ -24,11 +24,6 @@ class CustumerFactory extends Factory
     {
         return [
             'uid' => $this->faker->uuid(),
-            'contact_id' => $this->faker->numberBetween(1, 10),
-            'balence_id' => $this->faker->numberBetween(1, 10),
-            'listDiff_id' => $this->faker->numberBetween(1, 10),
-            'campagne_id' => $this->faker->numberBetween(1, 10),
-            'payement_id' => $this->faker->numberBetween(1, 10),
             'last_name' => $this->faker->lastName(),
             'firstname' => $this->faker->firstName(),
             'email' => $this->faker->unique()->safeEmail(),

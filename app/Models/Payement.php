@@ -9,14 +9,13 @@ class Payement extends Model
 {
     use HasFactory;
 
-    public function custumer(): HasMany
+    public function customer(): BelongsTo
     {
-        return $this->hasmany(Custumer::class, 'custumer_id');
+        return $this->belongsTo(Custumer::class);
     }
 
-
-    public function product(): HasMany
+    public function product(): BelongsTo
     {
-        return $this->hasmany(Product::class, 'product_id');
+        return $this->belongsTo(Product::class);
     }
 }

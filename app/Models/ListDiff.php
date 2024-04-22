@@ -15,12 +15,12 @@ class ListDiff extends Model
         'description',
     ];
 
-    public function custumer(): HasMany
+    public function customer(): HasMany
     {
-        return $this->hasmany(Custumer::class, 'custumer_id');
+        return $this->hasmany(Custumer::class, 'customer_id');
     }
 
-    public function contacts(): BelongsToMany 
+    public function contacts(): BelongsToMany
     {
         return $this->belongsToMany(Contact::class, 'contact_list_diffs', 'listDiff_id', 'contact_id')->withTimestamps();
     }

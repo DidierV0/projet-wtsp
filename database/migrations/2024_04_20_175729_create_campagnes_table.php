@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('campagnes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('custumer_id');
+            $table->foreignId('customer_id');
             $table->foreignId('model_id');
             $table->foreignId('listdiff_id');
             $table->string('name');

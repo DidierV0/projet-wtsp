@@ -17,7 +17,7 @@ class CampagneFactory extends Factory
     public function definition(): array
     {
         return [
-            'custumer_id' => $this->faker->numberBetween(1, 10),
+            'customer_id' => $this->faker->numberBetween(1, 10),
             'model_id' => $this->faker->numberBetween(1, 10),
             'listdiff_id' => $this->faker->numberBetween(1, 10),
             'name' => $this->faker->name(),

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Balence extends Model
@@ -11,14 +12,14 @@ class Balence extends Model
     use HasFactory;
 
     protected $fillable = [
+        'customer_id',
         'name',
         'nbMessageSent',
         'nbMessagePaid',
     ];
 
-
-    public function custumer(): HasMany
+    public function customer(): BelongsTo
     {
-        return $this->hasmany(Custumer::class, 'custumer_id');
+        return $this->belongsTo(Customer::class);
     }
 }

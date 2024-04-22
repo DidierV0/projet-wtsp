@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CustumerResource\Pages;
-use App\Filament\Resources\CustumerResource\RelationManagers;
-use App\Models\Custumer;
+use App\Filament\Resources\CustomerResource\Pages;
+use App\Filament\Resources\CustomerResource\RelationManagers;
+use App\Models\Customer;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CustumerResource extends Resource
+class CustomerResource extends Resource
 {
-    protected static ?string $model = Custumer::class;
+    protected static ?string $model = Customer::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,9 +24,18 @@ class CustumerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('uid')
+                    ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('contact_id')
-                    ->numeric(),
+                Forms\Components\Select::make('contact_id')
+                    ->relationship('contact', 'id'),
+                Forms\Components\Select::make('balence_id')
+                    ->relationship('balence', 'id'),
+                Forms\Components\Select::make('listDiff_id')
+                    ->relationship('listDiff', 'name'),
+                Forms\Components\Select::make('campagne_id')
+                    ->relationship('campagne', 'name'),
+                Forms\Components\Select::make('payement_id')
+                    ->relationship('payement', 'id'),
                 Forms\Components\TextInput::make('last_name')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('firstname')
@@ -54,7 +63,19 @@ class CustumerResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('uid')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('contact_id')
+                Tables\Columns\TextColumn::make('contact.id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('balence.id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('listDiff.name')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('campagne.name')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('payement.id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
@@ -71,9 +92,7 @@ class CustumerResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('has_wstp_b')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -110,9 +129,9 @@ class CustumerResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCustumers::route('/'),
-            'create' => Pages\CreateCustumer::route('/create'),
-            'edit' => Pages\EditCustumer::route('/{record}/edit'),
+            'index' => Pages\ListCustomers::route('/'),
+            'create' => Pages\CreateCustomer::route('/create'),
+            'edit' => Pages\EditCustomer::route('/{record}/edit'),
         ];
     }
 }

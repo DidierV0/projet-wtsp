@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('custumers', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->nuallable();
-            $table->foreignId('contact_id')->nullable()->cascadeOnDelate();
-            $table->foreignId('balence_id')->nullable()->cascadeOnDelate();
-            $table->foreignId('listDiff_id')->nullable()->cascadeOnDelate();
-            $table->foreignId('campagne_id')->nullable()->cascadeOnDelate();
-            $table->foreignId('payement_id')->nullable()->cascadeOnDelate();
             $table->string('last_name')->nullable();
             $table->string('firstname')->nullable();
             $table->string('email')->nullable()->unique();
@@ -37,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('custumers');
+        Schema::dropIfExists('customers');
     }
 };
