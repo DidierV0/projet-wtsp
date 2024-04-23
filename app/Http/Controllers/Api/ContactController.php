@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ContactResource;
+use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
 {
@@ -17,42 +19,18 @@ class ContactController extends Controller
         $contacts = Contact::all();
 
         // On retourne les contacts en JSON
-        return response()->json($contacts);
+        return ContactResource::collection($contacts);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ContactStoreRequest $request)
     {
-        // Validation des données de la requête
-        $validator = Validator::make($request->all(), [
-            'customer_id' => 'required|exists:customers,id',
-            'last_name' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
-            'birthdate' => 'required|date',
-            'phone_number' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'sex' => 'required|in:male,female',
-        ]);
+        // Crée un nouveau contact avec les données validées
+        $contact = Contact::create($request->validated());
 
-        // Vérification de la validation
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        }
-
-        // Création d'un nouveau contact
-        $contact = Contact::create([
-            'customer_id' => $request->customer_id,
-            'last_name' => $request->last_name,
-            'firstname' => $request->firstname,
-            'birthdate' => $request->birthdate,
-            'phone_number' => $request->phone_number,
-            'city' => $request->city,
-            'sex' => $request->sex,
-        ]);
-
-        // Retourne le contact créé avec le code de statut 201
+        // Retourne les informations du nouvel utilisateur en JSON avec le code de statut 201
         return response()->json($contact, 201);
     }
 

@@ -19,7 +19,7 @@ class Contact extends Model
         'birthdate',
         'phone_number',
         'city',
-        'sex',
+        'gender',
     ];
 
     public function customer(): BelongsTo

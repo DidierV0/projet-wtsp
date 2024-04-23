@@ -22,7 +22,7 @@ class ContactFactory extends Factory
             'birthdate' => $this->faker->date,
             'phone_number' => $this->faker->phoneNumber,
             'city' => $this->faker->city,
-            'sex' => $this->faker->randomElement(['male', 'female']),
+            'gender' => $this->faker->randomElement(['male', 'female']),
         ];
     }
 }
