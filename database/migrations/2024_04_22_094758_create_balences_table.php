@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -13,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('balences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id');
+            $table->foreignIdFor(Customer::class);
             $table->float('nbMessageSent');
             $table->float('nbMessagePaid');
             $table->timestamps();

@@ -10,14 +10,14 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customers = Customer::with('contacts')->get();
+        $customers = Customer::with('contacts', 'campagnes', 'listDiffs', 'balance', 'paiements')->get();
 
         return response()->json($customers);
     }
 
     public function show($id)
     {
-        $customer = Customer::with('contacts', 'listDiff', 'campagne', 'balence', 'payement')->find($id);
+        $customer = Customer::with('contacts', 'campagnes', 'listDiffs', 'balance', 'paiements')->find($id);
 
         return response()->json($customer);
     }

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id');
             $table->foreignId('product_id');
+            $table->string('reference');
+            $table->float('amount');
             $table->timestamps();
         });
     }

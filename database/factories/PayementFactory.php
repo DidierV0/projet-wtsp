@@ -19,6 +19,8 @@ class PayementFactory extends Factory
         return [
             'customer_id' => $this->faker->numberBetween(1, 10),
             'product_id' => $this->faker->numberBetween(1, 10),
+            'reference' => 'PAY' . $this->faker->unique()->randomNumber(6),
+            'amount' => $this->faker->randomFloat(2, 0, 100),
         ];
     }
 }

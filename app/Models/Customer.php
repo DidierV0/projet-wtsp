@@ -40,9 +40,9 @@ class Customer extends Model
         return $this->hasMany(ListDiff::class, 'customer_id');
     }
 
-    public function balance(): BelongsTo
+    public function balance(): HasMany
     {
-        return $this->belongsTo(Balence::class);
+        return $this->hasMany(Balence::class, 'customer_id');
     }
 
     public function paiements(): HasMany

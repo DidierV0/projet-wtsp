@@ -11,9 +11,10 @@ class Balence extends Model
 {
     use HasFactory;
 
+    protected $table = 'balences';
+
     protected $fillable = [
         'customer_id',
-        'name',
         'nbMessageSent',
         'nbMessagePaid',
     ];

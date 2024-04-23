@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Balence;
 use App\Models\Contact;
 use App\Models\Campagne;
 use App\Models\Customer;
@@ -54,16 +55,6 @@ class CustomerSeeder extends Seeder
                 // Créer le paiement avec customer_id défini
                 $customer->paiements()->save(Payement::factory()->make());
             }
-        });
-
-        // Créer une balance pour chaque client
-        $customers->each(function ($customer) {
-            // Créer la balance avec customer_id défini
-            $customer->balance()->create([
-                'customer_id' => $customer->id,
-                'nbMessageSent' => rand(1, 10), // Nombre de messages envoyés aléatoire
-                'nbMessagePaid' => rand(20, 50), // Nombre de messages payés aléatoire
-            ]);
         });
 
         // Obtenez tous les contacts et toutes les listes de diffusion
