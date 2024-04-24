@@ -56,7 +56,7 @@ class ContactController extends Controller
             'birthdate' => $request->birthdate,
             'phone_number' => $request->phone_number,
             'city' => $request->city,
-            'sex' => $request->sex,
+            'gender' => $request->gender,
         ]);
     }
 

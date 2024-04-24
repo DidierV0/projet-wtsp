@@ -15,7 +15,7 @@ class ContactStoreRequest extends FormRequest
             'birthdate' => 'required|date',
             'phone_number' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'gender' => 'required|in:male,female,undefined',
+            'gender' => 'required|in:male,female,other',
         ];
     }
 }
