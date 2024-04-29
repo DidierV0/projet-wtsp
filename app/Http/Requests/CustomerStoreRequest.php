@@ -10,7 +10,7 @@ class CustomerStoreRequest extends FormRequest
     {
         return [
             "uid" => "required|string|max:100",
-            "email" => "required|string",
+            "email" => "required|string|email|unique:customers,email",
         ];
     }
 }
