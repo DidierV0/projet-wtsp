@@ -20,21 +20,21 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
-            CustomerSeeder::class,
-            ProductSeeder::class,
-            ModeleSeeder::class,
+            // CustomerSeeder::class,
+            // ProductSeeder::class,
+            // ModeleSeeder::class,
         ]);
 
-        // Récupérer tous les clients
-        $customers = Customer::all();
+        // // Récupérer tous les clients
+        // $customers = Customer::all();
 
-        // Créer une balence pour chaque client
-        $customers->each(function ($customer) {
-            $customer->balance()->create([
-                'customer_id' => $customer->id,
-                'nbMessageSent' => rand(1, 10),
-                'nbMessagePaid' => rand(20, 50),
-            ]);
-        });
+        // // Créer une balence pour chaque client
+        // $customers->each(function ($customer) {
+        //     $customer->balance()->create([
+        //         'customer_id' => $customer->id,
+        //         'nbMessageSent' => rand(1, 10),
+        //         'nbMessagePaid' => rand(20, 50),
+        //     ]);
+        // });
     }
 }
